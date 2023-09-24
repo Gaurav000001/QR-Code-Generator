@@ -1,0 +1,5 @@
+package com.generate.service;
+
+public class StudentServiceImpl {
+
+}

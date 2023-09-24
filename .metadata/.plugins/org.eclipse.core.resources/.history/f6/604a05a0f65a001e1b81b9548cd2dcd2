@@ -1,0 +1,5 @@
+package com.generate.model;
+
+public class Student {
+
+}

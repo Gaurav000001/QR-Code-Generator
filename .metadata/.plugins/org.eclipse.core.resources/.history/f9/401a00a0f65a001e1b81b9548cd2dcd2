@@ -1,0 +1,5 @@
+package com.generate.repository;
+
+public interface StudentRepository {
+
+}

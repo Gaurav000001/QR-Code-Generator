@@ -1,0 +1,41 @@
+package com.generate.utils;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+//import java.nio.file.FileSystems;
+//import java.nio.file.Path;
+
+import com.generate.model.Student;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
+public class QRCodeGenerator {
+	
+	public static byte[] generate(Student student) throws WriterException, IOException {
+		String qrCodePath = "D:\\github files\\QR Code Generator\\QR-Code-Generator\\src\\main\\resources\\QR-Codes\\";
+		String qrCodeName = qrCodePath+student.getFirstName()+student.getStudentId()+"QRCODE.png";
+		
+		var qrCodeWriter = new QRCodeWriter();
+		String qrData = "ID: " + student.getStudentId() + "\n"
+				+ "First Name: " + student.getFirstName() + "\n"
+				+ "Last Name: " + student.getLastName() + "\n"
+				+ "Email: " + student.getEmail() + "\n"
+				+ "Mobile: " + student.getMobile();
+		var width = 400;
+		var height = 400;
+		
+		BitMatrix bitmatrix = qrCodeWriter.encode(qrData, BarcodeFormat.QR_CODE, width, height);
+	
+//		Saving the image generated in path
+//		Path path = FileSystems.getDefault().getPath(qrCodeName);
+//		MatrixToImageWriter.writeToPath(bitmatrix, "PNG", path);
+		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		MatrixToImageWriter.writeToStream(bitmatrix, "PNG", baos);
+		byte[] qrCodeImage = baos.toByteArray();
+		return qrCodeImage;
+	}
+}

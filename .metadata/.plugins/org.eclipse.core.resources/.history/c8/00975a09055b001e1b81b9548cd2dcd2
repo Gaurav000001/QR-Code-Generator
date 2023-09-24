@@ -1,0 +1,12 @@
+package com.generate.service;
+
+import java.util.List;
+
+import com.generate.model.Student;
+
+public interface StudentService {
+	
+	public Student createStudent(Student student);
+	public Student getStudent(Integer studentId);
+	public List<Student> getStudents();
+}

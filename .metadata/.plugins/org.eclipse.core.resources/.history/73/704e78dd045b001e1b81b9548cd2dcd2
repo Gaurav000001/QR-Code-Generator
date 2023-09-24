@@ -1,0 +1,10 @@
+package com.generate.utils;
+
+import com.generate.model.Student;
+
+public class QRCodeGenerator {
+	
+	public static void generate(Student student) {
+		String qrCodePath = 
+	}
+}

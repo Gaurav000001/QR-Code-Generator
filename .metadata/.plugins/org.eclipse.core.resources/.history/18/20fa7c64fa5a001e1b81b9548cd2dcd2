@@ -1,0 +1,5 @@
+package com.generate.controller;
+
+public class StudentController {
+
+}

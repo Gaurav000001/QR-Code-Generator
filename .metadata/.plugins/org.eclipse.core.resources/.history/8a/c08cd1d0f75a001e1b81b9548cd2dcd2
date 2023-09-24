@@ -1,0 +1,13 @@
+package com.generate.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.generate.repository.StudentRepository;
+
+public class StudentServiceImpl implements StudentService{
+	
+	@Autowired
+	private StudentRepository studentRepository;
+	
+	
+}
